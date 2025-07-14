@@ -65,7 +65,7 @@ Este proyecto implementa un **Agente de Inteligencia Artificial** capaz de respo
 
 ---
 
-##⚙️ Backend (Flask + LangChain + BigQuery)
+## ⚙️ Backend (Flask + LangChain + BigQuery)
 ### Funcionalidad
 - API REST con endpoint /agent
 
@@ -91,7 +91,7 @@ Este proyecto implementa un **Agente de Inteligencia Artificial** capaz de respo
 
 ---
 
-##Tecnologías
+## Tecnologías
 Python 3.9
 
 Flask
@@ -108,7 +108,7 @@ PostgreSQL (para trazabilidad con LangSmith)
 
 ---
 
-##🧠 Embeddings y Chunking
+## 🧠 Embeddings y Chunking
 Los scripts de embeddings analizan:
 
 Columnas de tablas (esquema, descripción, tags)
@@ -121,7 +121,7 @@ La información se almacena como vectores en Elasticsearch para recuperación se
 
 ---
 
-##🌐 Endpoint de la API
+## 🌐 Endpoint de la API
 
 GET /agent?idagente=<thread_id>&msg=<mensaje>
 
