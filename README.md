@@ -18,17 +18,28 @@ Este proyecto implementa un **Agente de Inteligencia Artificial** capaz de respo
 ## 📁 Estructura del Repositorio
 
 /frontend # App React (Vercel)
+
 └── src/
+
 └── components/
+
 └── pages/
+
 └── utils/
+
 └── services/
 
+
 /backend # Agente Flask + LangChain (Cloud Run)
+
 └── app.py
+
 └── Dockerfile
+
 └── requirements.txt
+
 └── tools/ # Herramientas personalizadas
+
 └── embeddings/ # Scripts para chunking y carga
 
 /APP_DATA_CARGA_BIGQUERY_PROYECTO.ipynb
@@ -52,40 +63,35 @@ Este proyecto implementa un **Agente de Inteligencia Artificial** capaz de respo
 - TailwindCSS
 - Desplegado en Vercel
 
-⚙️ Backend (Flask + LangChain + BigQuery)
-Funcionalidad
-API REST con endpoint /agent
+---
 
-Integra herramientas para consultar BigQuery:
+##⚙️ Backend (Flask + LangChain + BigQuery)
+### Funcionalidad
+- API REST con endpoint /agent
 
-Esquema de tablas
+- Integra herramientas para consultar BigQuery:
 
-Tamaño, filas y descripción
+ * Esquema de tablas
+ * Tamaño, filas y descripción
+ * Rutinas asociadas
+ * Información de particionado y clustering
+ * Lógica de deduplicación y origen/destino
 
-Rutinas asociadas
+- Búsqueda semántica con embeddings almacenados en Elasticsearch
 
-Información de particionado y clustering
+### Herramientas personalizadas (@tool)
+*  obtener_esquema_tabla(tabla_id)
+*  listar_tablas(dataset)
+*  info_tabla(tabla_id)
+*  listar_rutinas(dataset)
+*  particionamiento_tabla(tabla_id)
+*  obtener_procedimiento_asociado(tabla_id)
+*  sugerir_select_bigquery(query)
 
-Lógica de deduplicación y origen/destino
 
-Búsqueda semántica con embeddings almacenados en Elasticsearch
+---
 
-Herramientas personalizadas (@tool)
-obtener_esquema_tabla(tabla_id)
-
-listar_tablas(dataset)
-
-info_tabla(tabla_id)
-
-listar_rutinas(dataset)
-
-particionamiento_tabla(tabla_id)
-
-obtener_procedimiento_asociado(tabla_id)
-
-sugerir_select_bigquery(query)
-
-Tecnologías
+##Tecnologías
 Python 3.9
 
 Flask
@@ -100,7 +106,9 @@ Elasticsearch
 
 PostgreSQL (para trazabilidad con LangSmith)
 
-🧠 Embeddings y Chunking
+---
+
+##🧠 Embeddings y Chunking
 Los scripts de embeddings analizan:
 
 Columnas de tablas (esquema, descripción, tags)
@@ -111,14 +119,12 @@ Comentarios técnicos (desarrollador, caso de uso, versión, etc.)
 
 La información se almacena como vectores en Elasticsearch para recuperación semántica posterior.
 
-🌐 Endpoint de la API
-php-template
-Copiar
-Editar
+---
+
+##🌐 Endpoint de la API
+
 GET /agent?idagente=<thread_id>&msg=<mensaje>
+
 Ejemplo:
 
-bash
-Copiar
-Editar
 /agent?idagente=usuario123&msg=¿Cuál es el esquema de la tabla DS_XYZ.CUSTOMERS?
